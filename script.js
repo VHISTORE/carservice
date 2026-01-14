@@ -1,25 +1,37 @@
 const services = [
-    { title: "Diagnostics", icon: "fa-compass", desc: "Digital health check for your car's complex electronics.", price: "£39" },
-    { title: "Oil & Filters", icon: "fa-droplet", desc: "Precision maintenance with premium synthetic oils.", price: "£40" },
-    { title: "Chip Tuning", icon: "fa-bolt", desc: "Unleash hidden performance with custom ECU remapping.", price: "£199" },
-    { title: "Body Work", icon: "fa-wand-sparkles", desc: "Seamless scratch repair and premium polishing.", price: "£99" },
-    { title: "Wheel Refurb", icon: "fa-dharmachakra", desc: "Custom painting and restoration for alloy wheels.", price: "£40" },
-    { title: "Key Coding", icon: "fa-key", desc: "Expert programming for all modern car keys.", price: "£50" }
+    { title: "Vehicle Diagnostics", icon: "fa-microchip", desc: "Full system diagnostics for all vehicle modules.", price: "£39+" },
+    { title: "Oil & Filters Service", icon: "fa-oil-can", desc: "Complete oil and filter replacement with interval reset.", price: "£40+", labour: true },
+    { title: "Chip Tuning (Engine)", icon: "fa-gauge-high", desc: "Professional ECU remapping — Stage 1, ECO or Custom tune.", price: "£199+" },
+    { title: "Scratch & Chip Painting", icon: "fa-paint-roller", desc: "Professional finish. Final price depends on damage level.", price: "£99+" },
+    { title: "Bumper Repair", icon: "fa-car-side", desc: "Plastic bumper repair, welding and repainting.", price: "Ask" },
+    { title: "Headlight Restoration", icon: "fa-sun", desc: "Sanding, polishing and UV protection coating.", price: "£60/set" },
+    { title: "Alloy Wheel Painting", icon: "fa-circle-dot", desc: "Full refurbishment and painting of alloy wheels.", price: "£40/whl" },
+    { title: "DPF & EGR Cleaning", icon: "fa-wind", desc: "Deep cleaning for restored airflow and performance.", price: "£60+" },
+    { title: "Shot Blasting", icon: "fa-spray-can", desc: "Sand and grit blasting for any metal or alloy parts.", price: "£25+" },
+    { title: "Hub & Bearing", icon: "fa-gear", desc: "Replacement of wheel bearings and hubs.", price: "£35+", labour: true },
+    { title: "Suspension Repair", icon: "fa-wrench", desc: "Diagnostics and replacement of suspension components.", price: "£120+" },
+    { title: "Clutch Replacement", icon: "fa-sliders", desc: "Complete clutch kit replacement and adjustment.", price: "£220+" },
+    { title: "Body Polishing", icon: "fa-sparkles", desc: "Three-stage body polishing for high-gloss finish.", price: "£130+" },
+    { title: "Key Programming", icon: "fa-key", desc: "Coding of car keys, remotes, and transponders.", price: "£50+" },
+    { title: "4 New Tyres", icon: "fa-truck-monster", desc: "Full set replacement including wheel balancing.", price: "£250" }
 ];
 
-const grid = document.getElementById('services-grid');
+const container = document.getElementById('services-container');
 
-services.forEach(s => {
-    const div = document.createElement('div');
-    div.className = 'service-box';
-    div.innerHTML = `
+services.forEach((s, index) => {
+    const card = document.createElement('div');
+    card.className = 'service-card';
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', (index % 3) * 50);
+    
+    card.innerHTML = `
         <i class="fas ${s.icon}"></i>
         <h3>${s.title}</h3>
         <p>${s.desc}</p>
-        <div class="price-row">
-            <span class="price-val">${s.price}</span>
-            <div class="btn-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="price-tag">
+            <span class="labour">${s.labour ? 'Labour only' : 'Full Service'}</span>
+            <span class="val">${s.price}</span>
         </div>
     `;
-    grid.appendChild(div);
+    container.appendChild(card);
 });
