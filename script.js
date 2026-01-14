@@ -1,105 +1,37 @@
 const services = [
-    {
-        title: "Vehicle Diagnostics",
-        desc: "Full system diagnostics for all vehicle modules. Price may vary depending on the vehicle type.",
-        price: "From £39"
-    },
-    {
-        title: "Oil & Filters Service",
-        desc: "Complete oil and filter replacement with service interval reset. Price may vary depending on vehicle and oil type.",
-        price: "From £40",
-        notes: "Labour only. Parts not included."
-    },
-    {
-        title: "Scratch & Chip Painting",
-        desc: "Scratch and chip repair with professional finish. Final price depends on the level of damage.",
-        price: "From £99"
-    },
-    {
-        title: "Bumper Repair",
-        desc: "Plastic bumper repair, welding and repainting. Price depends on the size and type of damage.",
-        price: "Contact for price"
-    },
-    {
-        title: "Headlight Restoration",
-        desc: "Sanding, polishing and clear lacquer coating with UV protection. Price depends on lens condition and damage.",
-        price: "From £60 / set"
-    },
-    {
-        title: "Alloy Wheel Painting",
-        desc: "Full refurbishment and painting of alloy wheels. Price depends on wheel size and damage.",
-        price: "From £40 / wheel"
-    },
-    {
-        title: "DPF Cleaning",
-        desc: "Professional diesel particulate filter deep cleaning. Price depends on vehicle model and condition.",
-        price: "From £90"
-    },
-    {
-        title: "EGR Cleaning",
-        desc: "Cleaning of the EGR valve for restored airflow and performance.",
-        price: "From £60"
-    },
-    {
-        title: "Shot Blasting",
-        desc: "Professional sand and grit blasting for subframes, wheels, suspension arms, and more.",
-        price: "From £25"
-    },
-    {
-        title: "Hub & Bearing Replacement",
-        desc: "Replacement of wheel bearings and hubs. Final price depends on vehicle make.",
-        price: "From £35 / hub",
-        notes: "Labour only. Parts not included."
-    },
-    {
-        title: "Suspension Repair",
-        desc: "Diagnostics and replacement of suspension components. Price depends on complexity.",
-        price: "From £120"
-    },
-    {
-        title: "Clutch Replacement",
-        desc: "Complete clutch kit replacement and adjustment. Price depends on vehicle model.",
-        price: "From £220"
-    },
-    {
-        title: "Body Polishing",
-        desc: "Three-stage body polishing for high-gloss finish. Price depends on paint condition.",
-        price: "From £130"
-    },
-    {
-        title: "Full Car Wash",
-        desc: "Exterior and interior professional hand wash. Price depends on vehicle size.",
-        price: "From £30"
-    },
-    {
-        title: "Chip Tuning (Engine)",
-        desc: "Professional ECU remapping — Stage 1, ECO or Custom tune.",
-        price: "From £199"
-    },
-    {
-        title: "Key Programming",
-        desc: "Programming and coding of car keys, remotes, and transponders. Proof of ownership required.",
-        price: "From £50"
-    },
-    {
-        title: "4 New Tyres & Balancing",
-        desc: "Complete replacement of all 4 brand-new tyres, including fitting and full wheel balancing.",
-        price: "£250 / full set"
-    }
+    { title: "Vehicle Diagnostics", icon: "fa-microchip", desc: "Full system diagnostics for all vehicle modules.", price: "£39+" },
+    { title: "Oil & Filters Service", icon: "fa-oil-can", desc: "Complete oil and filter replacement with interval reset.", price: "£40+", labour: true },
+    { title: "Chip Tuning (Engine)", icon: "fa-gauge-high", desc: "Professional ECU remapping — Stage 1, ECO or Custom tune.", price: "£199+" },
+    { title: "Scratch & Chip Painting", icon: "fa-paint-roller", desc: "Professional finish. Final price depends on damage level.", price: "£99+" },
+    { title: "Bumper Repair", icon: "fa-car-side", desc: "Plastic bumper repair, welding and repainting.", price: "Ask" },
+    { title: "Headlight Restoration", icon: "fa-sun", desc: "Sanding, polishing and UV protection coating.", price: "£60/set" },
+    { title: "Alloy Wheel Painting", icon: "fa-circle-dot", desc: "Full refurbishment and painting of alloy wheels.", price: "£40/whl" },
+    { title: "DPF & EGR Cleaning", icon: "fa-wind", desc: "Deep cleaning for restored airflow and performance.", price: "£60+" },
+    { title: "Shot Blasting", icon: "fa-spray-can", desc: "Sand and grit blasting for any metal or alloy parts.", price: "£25+" },
+    { title: "Hub & Bearing", icon: "fa-gear", desc: "Replacement of wheel bearings and hubs.", price: "£35+", labour: true },
+    { title: "Suspension Repair", icon: "fa-wrench", desc: "Diagnostics and replacement of suspension components.", price: "£120+" },
+    { title: "Clutch Replacement", icon: "fa-sliders", desc: "Complete clutch kit replacement and adjustment.", price: "£220+" },
+    { title: "Body Polishing", icon: "fa-sparkles", desc: "Three-stage body polishing for high-gloss finish.", price: "£130+" },
+    { title: "Key Programming", icon: "fa-key", desc: "Coding of car keys, remotes, and transponders.", price: "£50+" },
+    { title: "4 New Tyres", icon: "fa-truck-monster", desc: "Full set replacement including wheel balancing.", price: "£250" }
 ];
 
 const container = document.getElementById('services-container');
 
-services.forEach(service => {
+services.forEach((s, index) => {
     const card = document.createElement('div');
     card.className = 'service-card';
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', (index % 3) * 100); // Ступенчатая анимация
     
     card.innerHTML = `
-        <h3>${service.title}</h3>
-        <p>${service.desc}</p>
-        <div class="price">${service.price}</div>
-        ${service.notes ? `<span class="notes">${service.notes}</span>` : ''}
+        <i class="fas ${s.icon}"></i>
+        <h3>${s.title}</h3>
+        <p>${s.desc}</p>
+        <div class="price-tag">
+            <span class="labour">${s.labour ? 'Labour only' : 'Service'}</span>
+            <span class="val">${s.price}</span>
+        </div>
     `;
-    
     container.appendChild(card);
 });
