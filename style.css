@@ -1,25 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary: #00d4ff; /* Неоновый синий */
-    --primary-glow: rgba(0, 212, 255, 0.4);
-    --bg: #ffffff;
-    --card-bg: #ffffff;
-    --text-main: #1a1a1a;
-    --text-dim: #6c757d;
-    --border: #e9ecef;
+    --primary: #00d4ff;      /* Яркий неон */
+    --primary-dim: rgba(0, 212, 255, 0.1);
+    --bg-dark: #0a0b0d;      /* Глубокий черный */
+    --card-bg: #14161a;      /* Контрастный серый для карточек */
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --border: #23262d;       /* Четкие границы */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: var(--bg);
+    background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    /* Текстурированный фон на тематику авто */
+    /* Текстурированный темный фон */
     background-image: 
-        linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+        linear-gradient(rgba(10, 11, 13, 0.85), rgba(10, 11, 13, 0.95)),
         url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2000&auto=format&fit=crop');
     background-attachment: fixed;
     background-size: cover;
@@ -29,10 +29,9 @@ body {
 
 /* Header */
 header {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(15px);
+    background: #0d0f12;
+    padding: 15px 0;
+    border-bottom: 2px solid var(--primary); /* Яркая полоса вверху */
     position: sticky; top: 0; z-index: 100;
 }
 
@@ -40,190 +39,150 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 
 .logo {
     font-family: 'Orbitron', sans-serif;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
     letter-spacing: 2px;
 }
-.logo span { color: var(--primary); text-shadow: 0 0 10px var(--primary-glow); }
+.logo span { color: var(--primary); text-shadow: 0 0 15px var(--primary); }
 
 .phone-link {
-    text-decoration: none; color: var(--text-main);
-    font-weight: 600; font-size: 14px;
-    padding: 10px 18px; border: 1px solid var(--border);
-    border-radius: 50px; transition: 0.3s;
+    text-decoration: none; color: #fff;
+    font-weight: 700; font-size: 14px;
+    padding: 12px 24px; border: 2px solid var(--primary);
+    border-radius: 4px; transition: 0.3s;
+    background: transparent;
 }
-.phone-link:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 15px var(--primary-glow); }
+.phone-link:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px var(--primary); }
 
 /* Hero Section */
 .hero {
-    padding: 120px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    top: -10%; right: -10%;
-    width: 400px; height: 400px;
-    background: var(--primary-glow);
-    filter: blur(100px);
-    border-radius: 50%;
-    z-index: -1;
+    padding: 100px 0;
+    text-align: left;
 }
 
 .badge {
     color: var(--primary);
-    font-weight: 700; font-size: 12px;
-    text-transform: uppercase; letter-spacing: 3px;
-    margin-bottom: 15px; display: inline-block;
-    border-left: 3px solid var(--primary);
-    padding-left: 10px;
+    font-weight: 700; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 4px;
+    margin-bottom: 20px; display: inline-block;
+    background: var(--primary-dim);
+    padding: 5px 15px;
+    border-radius: 2px;
 }
 
 .hero h1 {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.2rem, 6vw, 4.5rem);
-    line-height: 1; margin-bottom: 25px;
-    letter-spacing: -1px;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 0.9; margin-bottom: 30px;
 }
 .hero h1 span {
-    color: var(--primary);
-    text-shadow: 0 0 20px var(--primary-glow);
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--primary);
+    filter: drop-shadow(0 0 5px var(--primary));
 }
 
 .hero p {
-    font-size: 1.15rem; color: var(--text-dim); margin-bottom: 40px; max-width: 600px;
+    font-size: 1.2rem; color: var(--text-dim); margin-bottom: 40px; max-width: 600px;
 }
 
-.hero-btns { display: flex; gap: 20px; flex-wrap: wrap; }
+.hero-btns { display: flex; gap: 20px; }
 
 .btn {
-    padding: 18px 40px; text-decoration: none;
-    font-weight: 700; font-size: 14px;
-    border-radius: 12px; transition: 0.4s;
+    padding: 20px 40px; text-decoration: none;
+    font-weight: 800; font-size: 15px;
+    border-radius: 4px; transition: 0.4s;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-.btn-primary { 
-    background: var(--primary); 
-    color: white; 
-    box-shadow: 0 8px 25px var(--primary-glow);
-}
-.btn-primary:hover { transform: translateY(-5px); box-shadow: 0 12px 30px var(--primary-glow); }
+.btn-primary { background: var(--primary); color: #000; }
+.btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--primary); }
 
-.btn-whatsapp { background: #25d366; color: white; }
-.btn-whatsapp:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3); }
+.btn-whatsapp { border: 2px solid #25d366; color: #25d366; }
+.btn-whatsapp:hover { background: #25d366; color: #fff; }
 
 /* Services Section */
-.services { padding: 100px 0; }
+.services { padding: 80px 0; background: #08090b; }
 
 .section-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 2.5rem; margin-bottom: 60px;
     text-transform: uppercase;
-    text-align: center;
+    border-left: 5px solid var(--primary);
+    padding-left: 20px;
 }
-.section-title span { color: var(--primary); }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 30px;
 }
 
-/* Обновленные индивидуальные карточки */
+/* КАРТОЧКИ: Четкие, Индивидуальные */
 .service-card {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(0, 212, 255, 0.1);
-    padding: 40px;
-    border-radius: 20px;
-    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 45px 35px;
+    border-radius: 8px; /* Более строгие углы */
+    transition: 0.3s ease;
     display: flex; flex-direction: column;
-    backdrop-filter: blur(10px);
     position: relative;
-}
-
-.service-card::after {
-    content: "";
-    position: absolute;
-    bottom: 0; left: 0; width: 0; height: 4px;
-    background: var(--primary);
-    transition: 0.5s;
-    border-radius: 0 0 20px 20px;
 }
 
 .service-card:hover {
     border-color: var(--primary);
     transform: translateY(-10px);
-    background: #ffffff;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.1);
 }
-
-.service-card:hover::after { width: 100%; }
 
 .card-icon-box {
-    width: 60px; height: 60px;
-    background: rgba(0, 212, 255, 0.05);
-    border-radius: 15px;
+    width: 70px; height: 70px;
+    background: #1c1f26;
+    border: 1px solid var(--border);
+    border-radius: 4px;
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 25px;
-    transition: 0.3s;
-}
-
-.service-card:hover .card-icon-box {
-    background: var(--primary);
+    margin-bottom: 30px;
 }
 
 .service-card i {
-    font-size: 26px; color: var(--primary);
-    transition: 0.3s;
+    font-size: 30px; color: var(--primary);
 }
-
-.service-card:hover i { color: white; }
 
 .service-card h3 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.2rem; margin-bottom: 15px;
-    color: var(--text-main);
+    font-size: 1.3rem; margin-bottom: 15px;
+    color: #fff;
+    letter-spacing: 1px;
 }
 
 .service-card p {
     font-size: 0.95rem; color: var(--text-dim);
-    margin-bottom: 30px; flex-grow: 1;
+    margin-bottom: 35px; flex-grow: 1;
 }
 
+/* Ценник как отдельный выделенный элемент */
 .price-tag {
     display: flex; justify-content: space-between;
     align-items: center; 
-    background: #f8f9fa;
-    padding: 15px 20px;
-    border-radius: 12px;
-    transition: 0.3s;
-}
-
-.service-card:hover .price-tag {
-    background: rgba(0, 212, 255, 0.05);
+    background: #0d0f12;
+    padding: 20px;
+    border-left: 3px solid var(--primary);
 }
 
 .price-tag .val {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.4rem; font-weight: bold;
-    color: var(--text-main);
+    font-size: 1.6rem; font-weight: bold;
+    color: var(--primary);
 }
 
 .price-tag .labour {
-    font-size: 11px; color: var(--primary);
+    font-size: 10px; color: #555;
     font-weight: 800; text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
-/* Mobile Fixes */
+/* Mobile */
 @media (max-width: 600px) {
-    .hero { padding: 80px 0; text-align: center; }
-    .hero-btns { justify-content: center; }
-    .hero p { margin: 0 auto 30px auto; }
+    .hero h1 { font-size: 3rem; }
+    .hero-btns { flex-direction: column; }
     .services-grid { grid-template-columns: 1fr; }
-    .phone-link span { display: none; }
 }
