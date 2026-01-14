@@ -1,188 +1,189 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary: #00d4ff;      /* Яркий неон */
+    --primary: #00d4ff;
     --primary-dim: rgba(0, 212, 255, 0.1);
-    --bg-dark: #0a0b0d;      /* Глубокий черный */
-    --card-bg: #14161a;      /* Контрастный серый для карточек */
+    --bg-dark: #0a0b0d;
+    --card-bg: #14161a;
     --text-main: #ffffff;
     --text-dim: #a0a0a0;
-    --border: #23262d;       /* Четкие границы */
+    --border: #23262d;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    -webkit-tap-highlight-color: transparent; /* Убираем серое выделение при тапе в Safari */
+}
 
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    /* Текстурированный темный фон */
+    overflow-x: hidden;
+}
+
+/* Оптимизированный фон для Safari iOS */
+.fixed-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
     background-image: 
         linear-gradient(rgba(10, 11, 13, 0.85), rgba(10, 11, 13, 0.95)),
         url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2000&auto=format&fit=crop');
-    background-attachment: fixed;
     background-size: cover;
+    background-position: center;
 }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
 /* Header */
 header {
     background: #0d0f12;
-    padding: 15px 0;
-    border-bottom: 2px solid var(--primary); /* Яркая полоса вверху */
-    position: sticky; top: 0; z-index: 100;
+    padding: 12px 0;
+    border-bottom: 2px solid var(--primary);
+    position: sticky; top: 0; z-index: 1000;
 }
 
 nav { display: flex; justify-content: space-between; align-items: center; }
 
 .logo {
     font-family: 'Orbitron', sans-serif;
-    font-size: 26px;
+    font-size: 22px;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
-.logo span { color: var(--primary); text-shadow: 0 0 15px var(--primary); }
+.logo span { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
 .phone-link {
     text-decoration: none; color: #fff;
-    font-weight: 700; font-size: 14px;
-    padding: 12px 24px; border: 2px solid var(--primary);
-    border-radius: 4px; transition: 0.3s;
-    background: transparent;
+    font-weight: 700; font-size: 13px;
+    padding: 10px 15px; border: 1.5px solid var(--primary);
+    border-radius: 4px;
 }
-.phone-link:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px var(--primary); }
 
 /* Hero Section */
-.hero {
-    padding: 100px 0;
-    text-align: left;
-}
+.hero { padding: 60px 0; }
 
 .badge {
     color: var(--primary);
-    font-weight: 700; font-size: 13px;
-    text-transform: uppercase; letter-spacing: 4px;
-    margin-bottom: 20px; display: inline-block;
+    font-weight: 700; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 3px;
     background: var(--primary-dim);
-    padding: 5px 15px;
-    border-radius: 2px;
+    padding: 4px 12px;
+    margin-bottom: 20px;
+    display: inline-block;
 }
 
 .hero h1 {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    line-height: 0.9; margin-bottom: 30px;
+    font-size: clamp(2.2rem, 10vw, 4.5rem);
+    line-height: 0.95; margin-bottom: 25px;
 }
 .hero h1 span {
     color: transparent;
-    -webkit-text-stroke: 1.5px var(--primary);
-    filter: drop-shadow(0 0 5px var(--primary));
+    -webkit-text-stroke: 1px var(--primary);
 }
 
 .hero p {
-    font-size: 1.2rem; color: var(--text-dim); margin-bottom: 40px; max-width: 600px;
+    font-size: 1rem; color: var(--text-dim); margin-bottom: 35px; max-width: 500px;
 }
 
-.hero-btns { display: flex; gap: 20px; }
+.hero-btns { display: flex; flex-direction: column; gap: 15px; }
 
 .btn {
-    padding: 20px 40px; text-decoration: none;
-    font-weight: 800; font-size: 15px;
-    border-radius: 4px; transition: 0.4s;
+    padding: 18px 30px; text-decoration: none;
+    font-weight: 800; font-size: 14px;
+    border-radius: 4px; text-align: center;
     text-transform: uppercase;
 }
 
 .btn-primary { background: var(--primary); color: #000; }
-.btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--primary); }
-
-.btn-whatsapp { border: 2px solid #25d366; color: #25d366; }
-.btn-whatsapp:hover { background: #25d366; color: #fff; }
+.btn-whatsapp { border: 1.5px solid #25d366; color: #25d366; }
 
 /* Services Section */
-.services { padding: 80px 0; background: #08090b; }
+.services { padding: 60px 0; background: rgba(8, 9, 11, 0.9); }
 
 .section-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem; margin-bottom: 60px;
+    font-size: 2rem; margin-bottom: 40px;
     text-transform: uppercase;
     border-left: 5px solid var(--primary);
     padding-left: 20px;
 }
+.section-title span { color: var(--primary); }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 25px;
 }
 
-/* КАРТОЧКИ: Четкие, Индивидуальные */
+/* КАРТОЧКИ */
 .service-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    padding: 45px 35px;
-    border-radius: 8px; /* Более строгие углы */
-    transition: 0.3s ease;
+    padding: 35px 25px;
+    border-radius: 4px;
     display: flex; flex-direction: column;
-    position: relative;
-}
-
-.service-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-10px);
-    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.1);
 }
 
 .card-icon-box {
-    width: 70px; height: 70px;
+    width: 65px; height: 65px;
     background: #1c1f26;
     border: 1px solid var(--border);
-    border-radius: 4px;
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
-.service-card i {
-    font-size: 30px; color: var(--primary);
-}
+.service-card i { font-size: 28px; color: var(--primary); }
 
 .service-card h3 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.3rem; margin-bottom: 15px;
-    color: #fff;
+    font-size: 1.2rem; margin-bottom: 15px;
     letter-spacing: 1px;
 }
 
 .service-card p {
     font-size: 0.95rem; color: var(--text-dim);
-    margin-bottom: 35px; flex-grow: 1;
+    margin-bottom: 30px;
 }
 
-/* Ценник как отдельный выделенный элемент */
 .price-tag {
     display: flex; justify-content: space-between;
     align-items: center; 
     background: #0d0f12;
-    padding: 20px;
-    border-left: 3px solid var(--primary);
+    padding: 18px;
+    border-left: 4px solid var(--primary);
+    margin-top: auto;
 }
 
 .price-tag .val {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.6rem; font-weight: bold;
-    color: var(--primary);
+    font-size: 1.5rem; color: var(--primary);
 }
 
 .price-tag .labour {
     font-size: 10px; color: #555;
     font-weight: 800; text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-    .hero h1 { font-size: 3rem; }
-    .hero-btns { flex-direction: column; }
-    .services-grid { grid-template-columns: 1fr; }
+/* Адаптация для Планшетов и ПК */
+@media (min-width: 768px) {
+    .hero { padding: 100px 0; }
+    .hero-btns { flex-direction: row; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .section-title { font-size: 2.8rem; }
+}
+
+@media (min-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .service-card { transition: 0.3s ease; }
+    .service-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-8px);
+        box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+    }
 }
