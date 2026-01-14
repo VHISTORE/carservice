@@ -2,49 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUTO-CORE | Premium Garage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AUTO-CORE | Professional Workshop</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="glow-bg"></div>
+    <div class="bg-vibe"></div>
 
     <header>
         <nav class="container">
             <div class="logo">AUTO<span>CORE</span></div>
-            <div class="contact-top">
-                <a href="tel:+4400000000" class="phone-link"><i class="fas fa-phone"></i> Call Us</a>
+            <div class="header-contact">
+                <a href="tel:+4400000000" class="call-btn"><i class="fas fa-phone"></i></a>
             </div>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <span class="badge">Professional Workshop</span>
-            <h1>ENGINEERING <br><span>EXCELLENCE</span></h1>
-            <p>From precision diagnostics to custom chip tuning. <br>We take car care to the next level.</p>
-            <div class="hero-btns">
-                <a href="#services" class="btn btn-primary">Our Services</a>
-                <a href="#contact" class="btn btn-outline">Contact Us</a>
+        <div class="container">
+            <div class="hero-box" data-aos="zoom-out">
+                <span class="top-label">Premium Garage Service</span>
+                <h1>DRIVE WITH <span>CONFIDENCE</span></h1>
+                <p>Top-tier diagnostics, tuning, and repairs. Specialized in performance and reliability.</p>
+                <div class="hero-actions">
+                    <a href="#services" class="main-btn">Explore Services</a>
+                    <a href="https://wa.me/yournumber" class="wa-btn"><i class="fab fa-whatsapp"></i> Chat Now</a>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-right">Workshop <span>Services</span></h2>
+            <div class="section-header">
+                <h2>Our <span>Expertise</span></h2>
+                <div class="filter-hint">Scroll to explore <i class="fas fa-arrow-right"></i></div>
+            </div>
             <div class="services-grid" id="services-container">
                 </div>
         </div>
     </section>
 
+    <div class="mobile-nav">
+        <a href="#services"><i class="fas fa-tools"></i><span>Services</span></a>
+        <a href="tel:+4400000000" class="nav-center"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/yournumber"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-    <script>
-      AOS.init({ duration: 1000, once: true });
-    </script>
+    <script>AOS.init({duration: 800, once: true});</script>
 </body>
 </html>
