@@ -4,14 +4,16 @@
     --primary: #00d4ff;
     --primary-dim: rgba(0, 212, 255, 0.1);
     --bg-dark: #0a0b0d;
-    --card-bg: rgba(20, 22, 26, 0.85); /* Прозрачность для читабельности на фоне */
+    --card-bg: rgba(20, 22, 26, 0.85); /* Прозрачность для стиля */
     --text-main: #ffffff;
     --text-dim: #a0a0a0;
     --border: #23262d;
 }
 
 * { 
-    margin: 0; padding: 0; box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
     -webkit-tap-highlight-color: transparent; 
     scroll-behavior: smooth;
 }
@@ -24,7 +26,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ФИКС: Фоновое изображение сквозь весь сайт */
+/* ФОН: Виден всегда сквозь прозрачные секции */
 .fixed-bg {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -55,6 +57,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     padding: 10px 15px; border: 1.5px solid var(--primary); border-radius: 4px;
 }
 
+/* Hero Section */
 .hero { padding: 100px 0; min-height: 85vh; display: flex; align-items: center; background: transparent; }
 .badge {
     color: var(--primary); font-weight: 700; font-size: 11px;
@@ -73,7 +76,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary); }
 .btn-whatsapp { border: 1.5px solid #25d366; color: #25d366; }
 
-/* Workshop Services: Прозрачный фон для видимости fixed-bg */
+/* Workshop Services Section (Transparent) */
 .services { padding: 80px 0; background: transparent; }
 
 .section-title {
@@ -124,7 +127,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 }
 .service-card i { font-size: 26px; color: var(--primary); }
 
-/* Выделение заголовка услуги */
 .service-card h3 {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.5rem; 
@@ -134,7 +136,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     line-height: 1.2;
 }
 
-/* Описание услуги */
 .service-card p {
     font-size: 1rem; 
     color: #cecece;
@@ -143,7 +144,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     line-height: 1.6;
 }
 
-/* КОНТЕЙНЕР ЦЕН: Постоянный контур */
 .price-tag {
     display: flex;
     justify-content: space-between;
@@ -171,7 +171,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     letter-spacing: 1.5px;
 }
 
-/* FOOTER STYLES: Тоже полупрозрачный */
+/* FOOTER STYLES */
 .footer {
     background: rgba(8, 9, 11, 0.85);
     padding: 80px 0 0 0;
@@ -224,12 +224,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid var(--border);
-    transition: 0.4s;
-}
-
-.footer-map:hover {
-    border-color: var(--primary);
-    box-shadow: 0 0 20px var(--primary-dim);
 }
 
 .footer-bottom {
@@ -244,7 +238,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     font-size: 0.85rem;
 }
 
-/* Responsiveness */
 @media (min-width: 768px) {
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-btns { flex-direction: row; }
