@@ -11,6 +11,7 @@ const services = [
     { title: "Hub & Bearing", icon: "fa-gear", desc: "Replacement of wheel bearings and hubs.", price: "£35+", labour: true },
     { title: "Suspension Repair", icon: "fa-wrench", desc: "Diagnostics and replacement of suspension components.", price: "£120+" },
     { title: "Clutch Replacement", icon: "fa-sliders", desc: "Complete clutch kit replacement and adjustment.", price: "£220+" },
+    // Иконка Body Polishing обновлена на баллончик с блеском
     { title: "Body Polishing", icon: "fa-spray-can-sparkles", desc: "Three-stage body polishing for high-gloss finish.", price: "£130+" },
     { title: "Key Programming", icon: "fa-key", desc: "Coding of car keys, remotes, and transponders.", price: "£50+" },
     { title: "4 New Tyres", icon: "fa-truck-monster", desc: "Full set replacement including wheel balancing.", price: "£250" }
