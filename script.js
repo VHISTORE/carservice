@@ -1,28 +1,25 @@
 const services = [
-    { title: "Vehicle Diagnostics", icon: "fa-laptop-code", desc: "Digital scan of all vehicle control units with a detailed report.", price: "£39+" },
-    { title: "Oil & Filters Service", icon: "fa-oil-can", desc: "High-grade oil change and filter replacement for engine health.", price: "£40+", labour: true },
-    { title: "Scratch & Chip Painting", icon: "fa-brush", desc: "Invisible repairs for scratches and paint chips.", price: "£99+" },
-    { title: "Headlight Restore", icon: "fa-bolt-lightning", desc: "Restoring clarity and protection to yellowed lenses.", price: "£60/set" },
-    { title: "Alloy Wheel Painting", icon: "fa-circle-notch", desc: "Premium refinishing to make your wheels look brand new.", price: "£40/whl" },
-    { title: "Chip Tuning", icon: "fa-microchip", desc: "Software optimization for power, torque, and fuel economy.", price: "£199+" },
-    { title: "Bumper Repair", icon: "fa-car-side", desc: "Expert plastic welding and seamless repainting.", price: "From £80" },
-    { title: "Body Polishing", icon: "fa-wand-magic-sparkles", desc: "Deep gloss restoration and paint protection.", price: "£130+" },
-    { title: "Key Coding", icon: "fa-key", desc: "Programming of transponders and remote key fobs.", price: "£50+" }
+    { title: "Diagnostics", icon: "fa-compass", desc: "Digital health check for your car's complex electronics.", price: "£39" },
+    { title: "Oil & Filters", icon: "fa-droplet", desc: "Precision maintenance with premium synthetic oils.", price: "£40" },
+    { title: "Chip Tuning", icon: "fa-bolt", desc: "Unleash hidden performance with custom ECU remapping.", price: "£199" },
+    { title: "Body Work", icon: "fa-wand-sparkles", desc: "Seamless scratch repair and premium polishing.", price: "£99" },
+    { title: "Wheel Refurb", icon: "fa-dharmachakra", desc: "Custom painting and restoration for alloy wheels.", price: "£40" },
+    { title: "Key Coding", icon: "fa-key", desc: "Expert programming for all modern car keys.", price: "£50" }
 ];
 
-const container = document.getElementById('services-container');
+const grid = document.getElementById('services-grid');
 
 services.forEach(s => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
+    const div = document.createElement('div');
+    div.className = 'service-box';
+    div.innerHTML = `
         <i class="fas ${s.icon}"></i>
         <h3>${s.title}</h3>
         <p>${s.desc}</p>
-        <div class="card-price">
-            <span class="labour-tag">${s.labour ? 'Labour only' : 'Service'}</span>
+        <div class="price-row">
             <span class="price-val">${s.price}</span>
+            <div class="btn-arrow"><i class="fas fa-arrow-right"></i></div>
         </div>
     `;
-    container.appendChild(card);
+    grid.appendChild(div);
 });
