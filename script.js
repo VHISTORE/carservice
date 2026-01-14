@@ -1,5 +1,5 @@
 const services = [
-    { title: "Vehicle Diagnostics", icon: "fa-microchip", desc: "Full system diagnostics for all vehicle modules.", price: "£39+" },
+    { title: "Vehicle Diagnostics", icon: "fa-microchip", desc: "Full system diagnostics for all vehicle modules with official report.", price: "£39+" },
     { title: "Oil & Filters Service", icon: "fa-oil-can", desc: "Complete oil and filter replacement with interval reset.", price: "£40+", labour: true },
     { title: "Chip Tuning (Engine)", icon: "fa-gauge-high", desc: "Professional ECU remapping — Stage 1, ECO or Custom tune.", price: "£199+" },
     { title: "Scratch & Chip Painting", icon: "fa-paint-roller", desc: "Professional finish. Final price depends on damage level.", price: "£99+" },
@@ -25,11 +25,13 @@ services.forEach((s, index) => {
     card.setAttribute('data-aos-delay', (index % 3) * 50);
     
     card.innerHTML = `
-        <i class="fas ${s.icon}"></i>
+        <div class="card-icon-box">
+            <i class="fas ${s.icon}"></i>
+        </div>
         <h3>${s.title}</h3>
         <p>${s.desc}</p>
         <div class="price-tag">
-            <span class="labour">${s.labour ? 'Labour only' : 'Full Service'}</span>
+            <span class="labour">${s.labour ? 'Labour only' : 'Workshop Service'}</span>
             <span class="val">${s.price}</span>
         </div>
     `;
