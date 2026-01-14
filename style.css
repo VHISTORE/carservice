@@ -4,7 +4,7 @@
     --primary: #00d4ff;
     --primary-dim: rgba(0, 212, 255, 0.1);
     --bg-dark: #0a0b0d;
-    --card-bg: rgba(20, 22, 26, 0.85); /* Прозрачность для стиля */
+    --card-bg: rgba(20, 22, 26, 0.85); /* Полупрозрачный фон для карточек */
     --text-main: #ffffff;
     --text-dim: #a0a0a0;
     --border: #23262d;
@@ -15,6 +15,12 @@
     padding: 0; 
     box-sizing: border-box; 
     -webkit-tap-highlight-color: transparent; 
+}
+
+html, body {
+    /* Фикс от появления горизонтальной полосы прокрутки при анимации выезда */
+    max-width: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -23,10 +29,9 @@ body {
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-/* ФОН: Виден всегда сквозь прозрачные секции */
+/* ФОН: Фиксированный слой, видимый сквозь прозрачные секции */
 .fixed-bg {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -40,6 +45,7 @@ body {
 
 .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
+/* HEADER */
 header {
     background: rgba(13, 15, 18, 0.9);
     padding: 12px 0;
@@ -49,16 +55,35 @@ header {
 }
 
 nav { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-family: 'Orbitron', sans-serif; font-size: 22px; font-weight: bold; letter-spacing: 1px; }
-.logo span { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-.phone-link {
-    text-decoration: none; color: #fff; font-weight: 700; font-size: 13px;
-    padding: 10px 15px; border: 1.5px solid var(--primary); border-radius: 4px;
+.logo { 
+    font-family: 'Orbitron', sans-serif; 
+    font-size: 22px; 
+    font-weight: bold; 
+    letter-spacing: 1px; 
 }
 
-/* Hero Section */
-.hero { padding: 100px 0; min-height: 85vh; display: flex; align-items: center; background: transparent; }
+.logo span { 
+    color: var(--primary); 
+    text-shadow: 0 0 10px var(--primary); 
+}
+
+.phone-link {
+    text-decoration: none; color: #fff; 
+    font-weight: 700; font-size: 13px;
+    padding: 10px 15px; border: 1.5px solid var(--primary); 
+    border-radius: 4px;
+}
+
+/* HERO SECTION */
+.hero { 
+    padding: 100px 0; 
+    min-height: 85vh; 
+    display: flex; 
+    align-items: center; 
+    background: transparent; 
+}
+
 .badge {
     color: var(--primary); font-weight: 700; font-size: 11px;
     text-transform: uppercase; letter-spacing: 3px;
@@ -66,18 +91,43 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     margin-bottom: 20px; display: inline-block;
 }
 
-.hero h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 10vw, 4.5rem); line-height: 0.95; margin-bottom: 25px; }
-.hero h1 span { color: transparent; -webkit-text-stroke: 1px var(--primary); }
-.hero p { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 35px; max-width: 500px; }
+.hero h1 { 
+    font-family: 'Orbitron', sans-serif; 
+    font-size: clamp(2.5rem, 10vw, 4.5rem); 
+    line-height: 0.95; 
+    margin-bottom: 25px; 
+}
+
+.hero h1 span { 
+    color: transparent; 
+    -webkit-text-stroke: 1px var(--primary); 
+}
+
+.hero p { 
+    font-size: 1.1rem; 
+    color: var(--text-dim); 
+    margin-bottom: 35px; 
+    max-width: 500px; 
+}
 
 .hero-btns { display: flex; gap: 15px; }
-.btn { padding: 18px 30px; text-decoration: none; font-weight: 800; font-size: 14px; border-radius: 4px; text-align: center; text-transform: uppercase; transition: 0.3s; }
+
+.btn { 
+    padding: 18px 30px; text-decoration: none; 
+    font-weight: 800; font-size: 14px; 
+    border-radius: 4px; text-align: center; 
+    text-transform: uppercase; transition: 0.3s; 
+}
+
 .btn-primary { background: var(--primary); color: #000; }
 .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary); }
 .btn-whatsapp { border: 1.5px solid #25d366; color: #25d366; }
 
-/* Workshop Services Section (Transparent) */
-.services { padding: 80px 0; background: transparent; }
+/* SERVICES SECTION */
+.services { 
+    padding: 80px 0; 
+    background: transparent; 
+}
 
 .section-title {
     font-family: 'Orbitron', sans-serif;
@@ -98,11 +148,12 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     background: var(--primary);
     box-shadow: 0 0 15px var(--primary);
 }
+
 .section-title span { color: var(--primary); }
 
 .services-grid { display: grid; gap: 30px; }
 
-/* КАРТОЧКИ */
+/* КАРТОЧКИ УСЛУГ */
 .service-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -125,8 +176,10 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 30px; border-radius: 14px;
 }
+
 .service-card i { font-size: 26px; color: var(--primary); }
 
+/* Заголовок услуги — выделен цветом и размером */
 .service-card h3 {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.5rem; 
@@ -136,6 +189,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     line-height: 1.2;
 }
 
+/* Описание услуги */
 .service-card p {
     font-size: 1rem; 
     color: #cecece;
@@ -144,6 +198,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     line-height: 1.6;
 }
 
+/* КОНТЕЙНЕР ЦЕН: Постоянный неоновый контур */
 .price-tag {
     display: flex;
     justify-content: space-between;
@@ -173,10 +228,11 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 
 /* FOOTER STYLES */
 .footer {
-    background: rgba(8, 9, 11, 0.85);
+    background: rgba(8, 9, 11, 0.85); /* Полупрозрачный, чтобы видеть фон */
     padding: 80px 0 0 0;
     border-top: 1px solid var(--border);
     backdrop-filter: blur(15px);
+    overflow: hidden; /* Фикс вылетающих за край анимаций */
 }
 
 .footer-grid {
@@ -224,6 +280,12 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid var(--border);
+    transition: 0.4s;
+}
+
+.footer-map:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 20px var(--primary-dim);
 }
 
 .footer-bottom {
@@ -238,6 +300,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     font-size: 0.85rem;
 }
 
+/* АДАПТИВНОСТЬ */
 @media (min-width: 768px) {
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-btns { flex-direction: row; }
