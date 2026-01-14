@@ -14,7 +14,7 @@
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
-    -webkit-tap-highlight-color: transparent; /* Убираем серое выделение при тапе в Safari */
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -25,7 +25,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Оптимизированный фон для Safari iOS */
 .fixed-bg {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -39,7 +38,6 @@ body {
 
 .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-/* Header */
 header {
     background: #0d0f12;
     padding: 12px 0;
@@ -64,7 +62,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     border-radius: 4px;
 }
 
-/* Hero Section */
 .hero { padding: 60px 0; }
 
 .badge {
@@ -87,9 +84,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     -webkit-text-stroke: 1px var(--primary);
 }
 
-.hero p {
-    font-size: 1rem; color: var(--text-dim); margin-bottom: 35px; max-width: 500px;
-}
+.hero p { font-size: 1rem; color: var(--text-dim); margin-bottom: 35px; max-width: 500px; }
 
 .hero-btns { display: flex; flex-direction: column; gap: 15px; }
 
@@ -103,7 +98,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 .btn-primary { background: var(--primary); color: #000; }
 .btn-whatsapp { border: 1.5px solid #25d366; color: #25d366; }
 
-/* Services Section */
 .services { padding: 60px 0; background: rgba(8, 9, 11, 0.9); }
 
 .section-title {
@@ -113,65 +107,115 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     border-left: 5px solid var(--primary);
     padding-left: 20px;
 }
-.section-title span { color: var(--primary); }
 
 .services-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 25px;
+    /* Настройка для плавной анимации скролла на ПК */
+    perspective: 1000px;
 }
 
-/* КАРТОЧКИ */
+/* КАРТОЧКИ С ПРИЯТНОЙ АНИМАЦИЕЙ */
 .service-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     padding: 35px 25px;
-    border-radius: 4px;
-    display: flex; flex-direction: column;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Эффект свечения при наведении */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at top right, var(--primary-dim), transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.service-card:hover::before {
+    opacity: 1;
 }
 
 .card-icon-box {
-    width: 65px; height: 65px;
+    width: 60px; height: 60px;
     background: #1c1f26;
     border: 1px solid var(--border);
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 25px;
+    border-radius: 8px;
+    position: relative;
 }
 
-.service-card i { font-size: 28px; color: var(--primary); }
+.service-card i { font-size: 26px; color: var(--primary); }
 
 .service-card h3 {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.2rem; margin-bottom: 15px;
     letter-spacing: 1px;
+    position: relative;
 }
 
 .service-card p {
     font-size: 0.95rem; color: var(--text-dim);
     margin-bottom: 30px;
+    position: relative;
 }
 
+/* УЛУЧШЕННЫЙ PRICE TAG */
 .price-tag {
-    display: flex; justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
     align-items: center; 
-    background: #0d0f12;
-    padding: 18px;
-    border-left: 4px solid var(--primary);
+    background: rgba(13, 15, 18, 0.5);
+    padding: 15px 20px;
+    border: 1px solid var(--border); /* Полный контур вместо линии слева */
+    border-radius: 10px;
     margin-top: auto;
+    transition: 0.3s;
+    position: relative;
+}
+
+.service-card:hover .price-tag {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px var(--primary-dim);
+    background: rgba(0, 212, 255, 0.03);
 }
 
 .price-tag .val {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.5rem; color: var(--primary);
+    font-size: 1.4rem; 
+    color: var(--primary);
+    text-shadow: 0 0 5px var(--primary-dim);
 }
 
 .price-tag .labour {
-    font-size: 10px; color: #555;
-    font-weight: 800; text-transform: uppercase;
+    font-size: 10px; 
+    color: var(--text-dim);
+    font-weight: 700; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Адаптация для Планшетов и ПК */
+/* ПРИЯТНАЯ АНИМАЦИЯ ПОЯВЛЕНИЯ (Scroll-driven) */
+@keyframes revealCard {
+    from { opacity: 0; transform: translateY(50px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 @media (min-width: 768px) {
+    .service-card {
+        /* Карточки будут плавно появляться при скролле на ПК */
+        animation: revealCard linear both;
+        animation-timeline: view();
+        animation-range: entry 5% cover 30%;
+    }
     .hero { padding: 100px 0; }
     .hero-btns { flex-direction: row; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -180,10 +224,8 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 
 @media (min-width: 1024px) {
     .services-grid { grid-template-columns: repeat(3, 1fr); }
-    .service-card { transition: 0.3s ease; }
     .service-card:hover {
+        transform: translateY(-10px) scale(1.02);
         border-color: var(--primary);
-        transform: translateY(-8px);
-        box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
     }
 }
