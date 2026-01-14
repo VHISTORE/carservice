@@ -28,16 +28,18 @@
                 <h1>ENGINEERING <br><span>EXCELLENCE</span></h1>
                 <p>From precision diagnostics to custom chip tuning. <br>We take car care to the next level.</p>
                 <div class="hero-btns">
-                    <a href="#services" class="btn btn-primary">Our Services</a>
+                    <a href="#services-anchor" class="btn btn-primary">Our Services</a>
                     <a href="https://wa.me/your_number" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <div id="services-anchor"></div>
+
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-right">Workshop <span>Services</span></h2>
+            <h2 class="section-title" data-aos="fade-up">Workshop <span>Services</span></h2>
             <div class="services-grid" id="services-container">
                 </div>
         </div>
@@ -46,10 +48,12 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
     <script>
+      // Настройка AOS для постоянной анимации при скролле
       AOS.init({ 
-          duration: 800, 
-          once: true,
-          disable: 'mobile' // Отключаем AOS на мобилках для супер-плавного скролла в Safari
+          duration: 1000, 
+          once: false, // Теперь анимация будет повторяться при скролле вверх-вниз
+          mirror: true,
+          anchorPlacement: 'top-bottom'
       });
     </script>
 </body>
