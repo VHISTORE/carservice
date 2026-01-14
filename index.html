@@ -3,34 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUTO-ELITE | Future of Service</title>
+    <title>AUTO-CORE | Premium Service</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="mesh-gradient"></div>
-
     <header>
         <nav class="container">
-            <div class="logo">AUTO<span>ELITE</span></div>
-            <div class="menu-dots"><i class="fas fa-ellipsis-v"></i></div>
+            <div class="logo">AUTO<span>CORE</span></div>
+            <div class="contact-top">
+                <a href="tel:+4400000000" class="phone-link"><i class="fas fa-phone"></i> <span>Call Us</span></a>
+            </div>
         </nav>
     </header>
 
-    <main class="container">
-        <section class="hero">
-            <h1 class="reveal-text">NEXT LEVEL <span>MAINTENANCE</span></h1>
-            <p class="hero-sub">Experience the fusion of technology and automotive craftsmanship.</p>
-            <div class="hero-badge">Available 24/7 • Professional Team</div>
-        </section>
-
-        <section class="services-modern" id="services">
-            <div class="grid-container" id="services-grid">
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <span class="badge">Professional Workshop</span>
+                <h1>ENGINEERING <br><span>EXCELLENCE</span></h1>
+                <p>From precision diagnostics to custom chip tuning. <br>We take car care to the next level.</p>
+                <div class="hero-btns">
+                    <a href="#services" class="btn btn-primary">Our Services</a>
+                    <a href="https://wa.me/your_number" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
-        </section>
-    </main>
+            </div>
+        </div>
+    </section>
 
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Workshop <span>Services</span></h2>
+            <div class="services-grid" id="services-container">
+                </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+    </script>
 </body>
 </html>
