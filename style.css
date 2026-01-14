@@ -10,13 +10,20 @@
     --border: #23262d;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    -webkit-tap-highlight-color: transparent; 
+    scroll-behavior: smooth;
+}
 
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .fixed-bg {
@@ -48,7 +55,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     padding: 10px 15px; border: 1.5px solid var(--primary); border-radius: 4px;
 }
 
-.hero { padding: 100px 0; }
+.hero { padding: 100px 0; min-height: 85vh; display: flex; align-items: center; }
 .badge {
     color: var(--primary); font-weight: 700; font-size: 11px;
     text-transform: uppercase; letter-spacing: 3px;
@@ -67,30 +74,28 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary); }
 .btn-whatsapp { border: 1.5px solid #25d366; color: #25d366; }
 
-/* Улучшенная секция Workshop Services */
-.services { padding: 80px 0; background: rgba(8, 9, 11, 0.95); }
+/* Workshop Services Section */
+.services-section { padding: 80px 0; background: rgba(8, 9, 11, 0.95); }
 
 .section-title {
     font-family: 'Orbitron', sans-serif;
     font-size: clamp(1.8rem, 5vw, 2.8rem);
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     text-transform: uppercase;
     text-align: center;
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 }
 
-/* Красивое подчеркивание вместо боковой полоски */
 .section-title::after {
     content: '';
     position: absolute;
     bottom: 0; left: 50%;
     transform: translateX(-50%);
-    width: 80px; height: 4px;
+    width: 100px; height: 4px;
     background: var(--primary);
-    box-shadow: 0 0 10px var(--primary);
+    box-shadow: 0 0 15px var(--primary);
 }
-
 .section-title span { color: var(--primary); }
 
 .services-grid { display: grid; gap: 30px; }
@@ -99,66 +104,68 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 .service-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    padding: 40px 30px;
-    border-radius: 16px;
+    padding: 45px 30px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .service-card:hover {
-    border-color: rgba(0, 212, 255, 0.3);
-    transform: translateY(-5px);
+    border-color: rgba(0, 212, 255, 0.5);
+    transform: translateY(-8px);
 }
 
 .card-icon-box {
     width: 60px; height: 60px;
     background: #1c1f26; border: 1px solid var(--border);
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 25px; border-radius: 12px;
+    margin-bottom: 30px; border-radius: 14px;
 }
 .service-card i { font-size: 26px; color: var(--primary); }
 
-/* Визуальное разделение заголовка и текста */
+/* Заголовок услуги */
 .service-card h3 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.4rem; 
+    font-size: 1.5rem; 
     margin-bottom: 12px;
-    color: var(--primary); /* Выделил заголовок цветом */
+    color: var(--primary);
     letter-spacing: 0.5px;
+    line-height: 1.2;
 }
 
+/* Описание */
 .service-card p {
-    font-size: 0.95rem; 
-    color: var(--text-dim);
-    margin-bottom: 35px;
+    font-size: 1rem; 
+    color: #cecece;
+    margin-bottom: 40px;
     font-weight: 300;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
-/* КОНТЕЙНЕР ЦЕН: Без палок, Постоянный контур */
+/* КОНТЕЙНЕР ЦЕН */
 .price-tag {
     display: flex;
     justify-content: space-between;
     align-items: center; 
-    background: rgba(13, 15, 18, 0.8);
-    padding: 15px 20px;
-    border: 1px solid var(--primary); /* Контур виден ВСЕГДА */
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.1);
-    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 18px 25px;
+    border: 1px solid var(--primary); 
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.1);
+    border-radius: 12px;
     margin-top: auto;
 }
 
 .price-tag .val {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.4rem; 
+    font-size: 1.5rem; 
     color: #ffffff;
     font-weight: bold;
 }
 
 .price-tag .labour {
     font-size: 10px; 
-    color: var(--primary); /* Сделал ярче для акцента */
+    color: var(--primary);
     font-weight: 800; 
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -176,4 +183,5 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 @media (max-width: 767px) {
     .hero { padding: 40px 0; }
     .hero-btns { flex-direction: column; }
+    .section-title { margin-bottom: 50px; }
 }
