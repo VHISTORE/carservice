@@ -75,7 +75,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 .btn-whatsapp { border: 1.5px solid #25d366; color: #25d366; }
 
 /* Workshop Services Section */
-.services-section { padding: 80px 0; background: rgba(8, 9, 11, 0.95); }
+.services { padding: 80px 0; background: rgba(8, 9, 11, 0.95); }
 
 .section-title {
     font-family: 'Orbitron', sans-serif;
@@ -124,7 +124,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 }
 .service-card i { font-size: 26px; color: var(--primary); }
 
-/* Заголовок услуги */
 .service-card h3 {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.5rem; 
@@ -134,7 +133,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     line-height: 1.2;
 }
 
-/* Описание */
 .service-card p {
     font-size: 1rem; 
     color: #cecece;
@@ -143,7 +141,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     line-height: 1.6;
 }
 
-/* КОНТЕЙНЕР ЦЕН */
 .price-tag {
     display: flex;
     justify-content: space-between;
@@ -171,9 +168,75 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     letter-spacing: 1.5px;
 }
 
+/* FOOTER */
+.footer {
+    background: #08090b;
+    padding: 80px 0 0 0;
+    border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding-bottom: 60px;
+}
+
+.footer-desc {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    max-width: 400px;
+    margin: 20px 0 30px 0;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-main);
+}
+
+.contact-item i {
+    color: var(--primary);
+    width: 20px;
+}
+
+.contact-item a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.contact-item a:hover { color: var(--primary); }
+
+.footer-map {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.footer-bottom {
+    background: #050505;
+    padding: 25px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.footer-bottom p {
+    color: #555;
+    font-size: 0.85rem;
+}
+
 @media (min-width: 768px) {
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-btns { flex-direction: row; }
+    .footer-grid { grid-template-columns: 1fr 1.2fr; }
 }
 
 @media (min-width: 1024px) {
