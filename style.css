@@ -10,19 +10,13 @@
     --border: #23262d;
 }
 
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    -webkit-tap-highlight-color: transparent;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 .fixed-bg {
@@ -46,186 +40,140 @@ header {
 }
 
 nav { display: flex; justify-content: space-between; align-items: center; }
-
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
+.logo { font-family: 'Orbitron', sans-serif; font-size: 22px; font-weight: bold; letter-spacing: 1px; }
 .logo span { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
 .phone-link {
-    text-decoration: none; color: #fff;
-    font-weight: 700; font-size: 13px;
-    padding: 10px 15px; border: 1.5px solid var(--primary);
-    border-radius: 4px;
+    text-decoration: none; color: #fff; font-weight: 700; font-size: 13px;
+    padding: 10px 15px; border: 1.5px solid var(--primary); border-radius: 4px;
 }
 
-.hero { padding: 60px 0; }
-
+.hero { padding: 100px 0; }
 .badge {
-    color: var(--primary);
-    font-weight: 700; font-size: 11px;
+    color: var(--primary); font-weight: 700; font-size: 11px;
     text-transform: uppercase; letter-spacing: 3px;
-    background: var(--primary-dim);
-    padding: 4px 12px;
-    margin-bottom: 20px;
-    display: inline-block;
+    background: var(--primary-dim); padding: 4px 12px;
+    margin-bottom: 20px; display: inline-block;
 }
 
-.hero h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.2rem, 10vw, 4.5rem);
-    line-height: 0.95; margin-bottom: 25px;
-}
-.hero h1 span {
-    color: transparent;
-    -webkit-text-stroke: 1px var(--primary);
-}
+.hero h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 10vw, 4.5rem); line-height: 0.95; margin-bottom: 25px; }
+.hero h1 span { color: transparent; -webkit-text-stroke: 1px var(--primary); }
+.hero p { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 35px; max-width: 500px; }
 
-.hero p { font-size: 1rem; color: var(--text-dim); margin-bottom: 35px; max-width: 500px; }
+.hero-btns { display: flex; gap: 15px; }
 
-.hero-btns { display: flex; flex-direction: column; gap: 15px; }
-
-.btn {
-    padding: 18px 30px; text-decoration: none;
-    font-weight: 800; font-size: 14px;
-    border-radius: 4px; text-align: center;
-    text-transform: uppercase;
-}
-
+.btn { padding: 18px 30px; text-decoration: none; font-weight: 800; font-size: 14px; border-radius: 4px; text-align: center; text-transform: uppercase; transition: 0.3s; }
 .btn-primary { background: var(--primary); color: #000; }
+.btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary); }
 .btn-whatsapp { border: 1.5px solid #25d366; color: #25d366; }
 
-.services { padding: 60px 0; background: rgba(8, 9, 11, 0.9); }
+/* Улучшенная секция Workshop Services */
+.services { padding: 80px 0; background: rgba(8, 9, 11, 0.95); }
 
 .section-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 2rem; margin-bottom: 40px;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    margin-bottom: 60px;
     text-transform: uppercase;
-    border-left: 5px solid var(--primary);
-    padding-left: 20px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
-    /* Настройка для плавной анимации скролла на ПК */
-    perspective: 1000px;
+/* Красивое подчеркивание вместо боковой полоски */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80px; height: 4px;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
 }
 
-/* КАРТОЧКИ С ПРИЯТНОЙ АНИМАЦИЕЙ */
+.section-title span { color: var(--primary); }
+
+.services-grid { display: grid; gap: 30px; }
+
+/* КАРТОЧКИ */
 .service-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    padding: 35px 25px;
-    border-radius: 12px;
+    padding: 40px 30px;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Эффект свечения при наведении */
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at top right, var(--primary-dim), transparent);
-    opacity: 0;
-    transition: 0.4s;
-}
-
-.service-card:hover::before {
-    opacity: 1;
+.service-card:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateY(-5px);
 }
 
 .card-icon-box {
     width: 60px; height: 60px;
-    background: #1c1f26;
-    border: 1px solid var(--border);
+    background: #1c1f26; border: 1px solid var(--border);
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 25px;
-    border-radius: 8px;
-    position: relative;
+    margin-bottom: 25px; border-radius: 12px;
 }
-
 .service-card i { font-size: 26px; color: var(--primary); }
 
+/* Визуальное разделение заголовка и текста */
 .service-card h3 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.2rem; margin-bottom: 15px;
-    letter-spacing: 1px;
-    position: relative;
+    font-size: 1.4rem; 
+    margin-bottom: 12px;
+    color: var(--primary); /* Выделил заголовок цветом */
+    letter-spacing: 0.5px;
 }
 
 .service-card p {
-    font-size: 0.95rem; color: var(--text-dim);
-    margin-bottom: 30px;
-    position: relative;
+    font-size: 0.95rem; 
+    color: var(--text-dim);
+    margin-bottom: 35px;
+    font-weight: 300;
+    line-height: 1.5;
 }
 
-/* УЛУЧШЕННЫЙ PRICE TAG */
+/* КОНТЕЙНЕР ЦЕН: Без палок, Постоянный контур */
 .price-tag {
     display: flex;
     justify-content: space-between;
     align-items: center; 
-    background: rgba(13, 15, 18, 0.5);
+    background: rgba(13, 15, 18, 0.8);
     padding: 15px 20px;
-    border: 1px solid var(--border); /* Полный контур вместо линии слева */
-    border-radius: 10px;
+    border: 1px solid var(--primary); /* Контур виден ВСЕГДА */
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.1);
+    border-radius: 8px;
     margin-top: auto;
-    transition: 0.3s;
-    position: relative;
-}
-
-.service-card:hover .price-tag {
-    border-color: var(--primary);
-    box-shadow: 0 0 15px var(--primary-dim);
-    background: rgba(0, 212, 255, 0.03);
 }
 
 .price-tag .val {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.4rem; 
-    color: var(--primary);
-    text-shadow: 0 0 5px var(--primary-dim);
+    color: #ffffff;
+    font-weight: bold;
 }
 
 .price-tag .labour {
     font-size: 10px; 
-    color: var(--text-dim);
-    font-weight: 700; 
+    color: var(--primary); /* Сделал ярче для акцента */
+    font-weight: 800; 
     text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* ПРИЯТНАЯ АНИМАЦИЯ ПОЯВЛЕНИЯ (Scroll-driven) */
-@keyframes revealCard {
-    from { opacity: 0; transform: translateY(50px) scale(0.9); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+    letter-spacing: 1.5px;
 }
 
 @media (min-width: 768px) {
-    .service-card {
-        /* Карточки будут плавно появляться при скролле на ПК */
-        animation: revealCard linear both;
-        animation-timeline: view();
-        animation-range: entry 5% cover 30%;
-    }
-    .hero { padding: 100px 0; }
-    .hero-btns { flex-direction: row; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .section-title { font-size: 2.8rem; }
+    .hero-btns { flex-direction: row; }
 }
 
 @media (min-width: 1024px) {
     .services-grid { grid-template-columns: repeat(3, 1fr); }
-    .service-card:hover {
-        transform: translateY(-10px) scale(1.02);
-        border-color: var(--primary);
-    }
+}
+
+@media (max-width: 767px) {
+    .hero { padding: 40px 0; }
+    .hero-btns { flex-direction: column; }
 }
